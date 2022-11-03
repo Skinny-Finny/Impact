@@ -77,9 +77,14 @@ public class GameControl : MonoBehaviour
             targetRandomPosition = new Vector2(Random.Range(-6f, 7f), Random.Range(-4f, 3f));      // sets range for random target position
             Instantiate(target, targetRandomPosition, Quaternion.identity);                        // spawns a target object at given random position
             CountdownText.text = "TIME REMAINING: " + i;
-            HitCounterText.text = "SUCCESFUL HITS: " + targetsHit;
 
-            yield return new WaitForSeconds(1f);
+            for (int j = 30; j >= 1; j--)                                  // j multiplied by wait for seconds below = time between target spawns
+            {
+                HitCounterText.text = "SUCCESFUL HITS: " + targetsHit;
+                yield return new WaitForSeconds(0.033f);                 
+            }
+
+            yield return new WaitForSeconds(0.001f);
         }
 
         LiveInfo.gameObject.SetActive(false);
