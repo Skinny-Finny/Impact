@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : MonoBehaviour
+public class DecoyTarget : MonoBehaviour
 {   
     void Start()           //When target is created
     {
@@ -11,8 +11,7 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()    //when target is clicked
     {
-        GameControl.score += 6;     // increment values by desired amount
-        GameControl.targetsHit += 1;
+        GameControl.score -= 9;     // increment values by desired amount
         Destroy(gameObject);         //then delete object
     }
 }
